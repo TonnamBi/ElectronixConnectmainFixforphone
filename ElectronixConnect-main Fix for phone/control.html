@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>Control Electric Price</title>
+  <link rel="stylesheet" type="text/css" href="style.css">
+</head>
+<body>
+  <nav class="navbar">
+    <a href="index.html" class="logo">
+      <img src="image/Logo.png" alt="Logo">
+    </a>
+    <h1> ควบคุมค่าไฟฟ้า </h1>
+    <a href="index.html" class="epic">
+      <img src="image/Epic_.png" alt="Logo1">
+    </a>
+</nav>
+  <div class="container-2">
+    <div class="input-container-2"> 
+      <label for="total-budget">Total Budget ($):</label>
+      <input type="number" id="total-budget" required>
+
+      <!-- Add the input field for control price -->
+      <label for="control-price">Control Price ($):</label>
+      <input type="number" id="control-price" required>
+
+      <button class="control-button" onclick="calculateApplianceBudget()">Calculate Appliance Budget</button>
+    </div>
+
+    <div id="appliance-budgets" class="result-container-1">
+      <!-- Appliance budgets will be displayed here -->
+    </div>
+  </div>
+
+  <script src="script.js"></script>
+</body>
+</html>

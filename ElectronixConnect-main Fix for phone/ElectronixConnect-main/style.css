@@ -1,0 +1,577 @@
+@import url('https://fonts.googleapis.com/css2?family=Prompt&family=Roboto&display=swap');
+*{
+  margin: 0;
+  padding: 0;
+  outline: none;
+  box-sizing: border-box;
+  font-family: 'Prompt', sans-serif;
+  color: black
+}
+.navbar {
+    margin: 0;
+    padding: 0;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 10px;
+    background: #89bfff;
+  }
+  .logo {
+    text-decoration: none;
+    margin-right: 20px;
+  }
+  
+  .logo img {
+    width: 500px; /* Adjust the width as needed */
+    height: auto; /* Preserve aspect ratio */
+  }
+
+  .slideshow-container {
+    max-width: 2000px; /* Adjust the value to your desired width */
+    position: relative;
+    margin: 10px;
+    margin-bottom: -200px;
+  }
+
+  .mySlides {
+    display: none;
+  }
+
+  .arrow {
+    cursor: pointer;
+    position: absolute;
+    top: 50%;
+    width: auto;
+    padding: 16px;
+    color: white;
+    font-weight: bold;
+    font-size: 20px;
+    transition: 0.6s ease;
+    border-radius: 0 3px 3px 0;
+    user-select: none;
+    transform: translateY(-50%);
+  }
+
+  .prev {
+    left: 0;
+  }
+
+  .next {
+    right: 0;
+    border-radius: 3px 0 0 3px;
+  }
+
+  .dot {
+    height: 15px;
+    width: 15px;
+    margin: 0 2px;
+    margin-bottom: -200px;
+    background-color: #bbb;
+    border-radius: 50%;
+    display: inline-block;
+    transition: background-color 0.6s ease;
+    cursor: pointer;
+  }
+
+  .active {
+    background-color: #717171;
+  }
+
+  .slide-in {
+    animation: slide-in 0.6s forwards;
+  }
+
+  .slide-out {
+    animation: slide-out 0.6s forwards;
+  }
+
+  @keyframes slide-in {
+    0% { transform: translateX(-100%); }
+    100% { transform: translateX(0); }
+  }
+
+  @keyframes slide-out {
+    0% { transform: translateX(0); }
+    100% { transform: translateX(100%); }
+  }
+
+  .page-container {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+    margin: 1px;
+    margin-top: 10px;
+  }
+  
+  .box {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    width: 500px;
+    height: 400px;
+    margin: 100px;
+    border: 1px solid #ccc;
+    border-radius: 4px;
+    overflow: hidden;
+    position: relative;
+    box-shadow: 0 5px 4px rgba(0, 0, 0, 0.2);
+    background: #89bfff;
+  }
+  
+  .image-container {
+    width: auto;
+    height: auto;
+    overflow: hidden;
+  }
+  
+  .image-container img {
+    width: auto;
+    height: auto;
+    object-fit: cover; /* Crop the image to fit within the container */
+    position: center;
+  }
+  
+  .content {
+    padding: 20px;
+    text-align: center;
+    bottom: 0;
+    left: 0;
+  }
+  
+  h3 {
+    margin-top: 0;
+  }
+  
+  p {
+    margin-bottom: 10px;
+  }
+  
+  .box-button {
+    display: inline-block;
+    background: white;
+    padding: 10px 10px;
+    border: none;
+    border-radius: 8px;
+    color: IndianRed;
+    border: 3px solid IndianRed;
+    background-image: linear-gradient(to right, transparent 50%, IndianRed 50%);
+    background-size: 200%;
+  }
+
+  h1 {
+    font-size: 50px;
+    position: relative;
+    margin-right: 450px;
+  }
+
+  h1 {
+    text-align: center;
+  }
+  
+  .input-container {
+    margin-bottom: 10px;
+  }
+  
+  .input-container label {
+    display: inline-block;
+    width: 150px;
+  }
+  
+  .result-container {
+    margin-top: 20px;
+    font-weight: bold;
+  }
+
+  body {
+    font-family: Arial, sans-serif;
+    margin: 20px;
+  }
+  
+  h1 {
+    text-align: center;
+  }
+  
+  .container {
+    display: flex;
+    justify-content: center;
+    align-items: flex-start;
+    margin: 100px;
+  }
+  
+  .calculator {
+    margin-right: 20px;
+    padding: 40px;
+    background-color: #89bfff;
+    border-radius: 5px;
+    box-shadow: 0 0 5px rgba(0, 0, 0, 0.2);
+  }
+  
+  .calculator h2 {
+    margin-bottom: 20px;
+  }
+  
+  .dropdown {
+    position: relative;
+    display: inline-block;
+  }
+  
+  .dropbtn {
+    padding: 5px 10px;
+    border: none;
+    border-radius: 5px;
+    background-color: #f2f2f2;
+    font-size: 16px;
+    cursor: pointer;
+    margin-bottom: 30px;
+  }
+  
+  .dropdown-arrow {
+    display: inline-block;
+    width: 0;
+    height: 0;
+    border-left: 6px solid transparent;
+    border-right: 6px solid transparent;
+    border-top: 6px solid #333;
+    transition: transform 0.3s;
+    transform-origin: center center;
+  }
+  
+  .dropdown.show .dropdown-arrow {
+    transform: rotate(180deg);
+  }
+  
+  .dropdown-content {
+    display: none;
+    position: absolute;
+    background-color: #f9f9f9;
+    min-width: 160px;
+    box-shadow: 0px 8px 16px 0px rgba(0,0,0,0.2);
+    z-index: 1;
+  }
+  
+  .dropdown-content a {
+    color: black;
+    padding: 8px 12px;
+    text-decoration: none;
+    display: block;
+  }
+  
+  .dropdown-content a:hover {
+    background-color: #f1f1f1;
+  }
+  
+  .dropdown:hover .dropdown-content {
+    display: block;
+  }
+  
+  .dropdown:hover .dropbtn {
+    background-color: #e9e9e9;
+  }
+  
+  .input-container {
+    margin-bottom: 10px;
+    width: 400px;
+  }
+  
+  .input-container label {
+    display: block;
+    margin-bottom: 5px;
+  }
+  
+  .input-container input {
+    width: 100%;
+    padding: 5px;
+    border: 1px solid #ccc;
+    border-radius: 3px;
+  }
+  
+  .result-container {
+    margin-top: 20px;
+    font-weight: bold;
+    text-align: center;
+    color: #008000;
+  }
+  .calculate-button {
+    display: inline-block;
+    background: white;
+    margin: 20px auto;
+    padding: 10px 10px;
+    color: IndianRed;
+    border: 3px solid IndianRed;
+    border-radius: 8px;
+    cursor: pointer;
+    font-size: 16px;
+    transition: background-color 0.3s ease;
+    background-image: linear-gradient(to right, transparent 50%, IndianRed 50%);
+    background-size: 200%;
+    margin-left: 850px;
+  }
+  
+  .calculate-button:hover {
+    background-color: rgb(219, 135, 135);
+  }
+  
+  .price-button {
+    display: inline-block;
+    background: white;
+    margin: 20px auto;
+    padding: 10px 10px;
+    color: rgb(77, 106, 231);
+    border: 3px solid rgb(77, 106, 231);
+    border-radius: 8px;
+    cursor: pointer;
+    font-size: 16px;
+    transition: background-color 0.3s ease;
+    background-image: linear-gradient(to right, transparent 50%, rgb(77, 106, 231) 50%);
+    background-size: 200%;
+    margin-left: 850px;
+  }
+  
+  .price-button:hover {
+    background-color: #0056b3;
+  }
+
+  .container-1 {
+    max-width: 2000px;
+    padding: 70px;
+    margin: 200px auto;
+    background-color: #89bfff;
+    border-radius: 10px;
+    box-shadow: 12px 10px 12px rgba(0, 0, 0, 0.1);
+  }
+  
+  h4 {
+    text-align: center;
+    margin: 0 0 20px 0;
+    color: #151f6d;
+    font-size: 50px;
+  }
+  
+  .result-container {
+    display: flex;
+    justify-content: space-between;
+  }
+  
+  .column {
+    flex: 1;
+    text-align: center;
+    padding: 70px;
+    background-color: #151f6d;
+    border-radius: 5px;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+    margin: 50px;
+  }
+  
+  h5 {
+    margin: 0;
+    color: #fff;
+    font-size: 50px;
+  }
+  
+  p {
+    margin: 10px 0 0 0;
+    font-size: 24px;
+    font-weight: bold;
+    color: #fff;
+  }
+  
+  @media (max-width: 480px) {
+    .container-1 {
+      width: 100%;
+    }
+  }
+
+  .result-container-1{
+    background-color: #89bfff;
+    border: 1px solid #ccc;
+    border-radius: 8px;
+    box-shadow: 0 5px 4px rgba(0, 0, 0, 0.2);
+  }
+
+/* Reset default styles */
+* {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+.container-2 {
+  max-width: 800px;
+  margin: 0 auto;
+  padding: 20px;
+}
+
+h1, h2 {
+  text-align: center;
+  margin-bottom: 20px;
+}
+
+/* Styling for Appliance List */
+.appliance-list {
+  width: 1000px;
+  margin-bottom: 50px;
+  margin-top: 100px;
+  border: 1px solid #ccc;
+  border-radius: 10px;
+  padding: 10px;
+  background-color: #89bfff;
+  box-shadow: 0 5px 4px rgba(0, 0, 0, 0.2);
+}
+
+.appliance-list ul {
+  color: white;
+  list-style: none;
+  padding: 0;
+  margin: 0;
+}
+
+.appliance-list li {
+  margin-bottom: 5px;
+  color: white;
+}
+
+/* Styling for Add Appliance Form */
+.add-appliance-form {
+  width: 1000px;
+  border: 1px solid #ccc;
+  border-radius: 10px;
+  background-color: #89bfff;
+  padding: 20px;
+  box-shadow: 0 5px 4px rgba(0, 0, 0, 0.2);
+}
+
+.add-appliance-form form {
+  display: flex;
+  color: white;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.add-appliance-form label {
+  width: 100%;
+  max-width: 200px;
+  color: white;
+}
+
+.add-appliance-form input,
+.add-appliance-form select {
+  flex: 1;
+  margin: 10px;
+  padding: 8px;
+  border: 1px solid #ccc;
+  border-radius: 10px;
+}
+
+.add-appliance-form button {
+  display: inline-block;
+  background: white;
+  margin: 20px auto;
+  padding: 10px 10px;
+  color: rgb(77, 106, 231);
+  border: 3px solid rgb(77, 106, 231);
+  border-radius: 8px;
+  cursor: pointer;
+  font-size: 16px;
+  transition: background-color 0.3s ease;
+  background-image: linear-gradient(to right, transparent 50%, rgb(77, 106, 231) 50%);
+  background-size: 200%;
+}
+
+.add-appliance-form button:hover {
+  background-color: rgb(145, 163, 247);
+}
+
+/* Styling for Control Form */
+.control-form {
+  background-color: #fff;
+  padding: 20px;
+  border: 1px solid #ccc;
+}
+
+.control-form label {
+  display: block;
+  margin-bottom: 10px;
+}
+
+.control-form input {
+  width: 100%;
+  max-width: 200px;
+  padding: 8px;
+  border: 1px solid #ccc;
+}
+
+/* Styling for Appliance Budgets */
+.appliance-budgets {
+  margin-top: 20px;
+  background-color: #fff;
+  padding: 20px;
+  border: 1px solid #ccc;
+}
+
+.appliance-budgets p {
+  margin-bottom: 10px;
+}
+
+/* Styling for Link to Control Electric Price page */
+a {
+  display: block;
+  text-align: center;
+  margin-top: 20px;
+  color: #007bff;
+  text-decoration: none;
+  transition: color 0.3s ease;
+}
+
+a:hover {
+  color: #0056b3;
+}
+
+.clear-button{
+  display: inline-block;
+  background: white;
+  margin: 20px auto;
+  padding: 10px 10px;
+  color: rgb(231, 77, 97);
+  border: 3px solid rgb(231, 77, 97);
+  border-radius: 8px;
+  cursor: pointer;
+  font-size: 16px;
+  transition: background-color 0.3s ease;
+  background-image: linear-gradient(to right, transparent 50%, rgb(77, 106, 231) 50%);
+  background-size: 200%;
+}
+
+.clear-button:hover{
+  background-color: rgb(250, 149, 163);
+}
+
+.input-container-2{
+  width: 1000px;
+  margin-bottom: 50px;
+  margin-top: 100px;
+  border: 1px solid #ccc;
+  border-radius: 10px;
+  padding: 10px;
+  background-color: #89bfff;
+  box-shadow: 0 5px 4px rgba(0, 0, 0, 0.2);
+}
+
+.control-button {
+  display: inline-block;
+  background: white;
+  margin: 20px auto;
+  padding: 10px 10px;
+  color: rgb(77, 106, 231);
+  border: 3px solid rgb(77, 106, 231);
+  border-radius: 8px;
+  cursor: pointer;
+  font-size: 16px;
+  transition: background-color 0.3s ease;
+  background-image: linear-gradient(to right, transparent 50%, rgb(77, 106, 231) 50%);
+  background-size: 200%;
+}
+
+.control-button:hover {
+  background-color: rgb(145, 163, 247);
+}

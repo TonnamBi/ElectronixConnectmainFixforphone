@@ -1,0 +1,153 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Electric Calculator</title>
+    <link rel="stylesheet" type="text/css" href="style.css">
+</head>
+<body>
+    <nav class="navbar">
+        <a href="index.html" class="logo">
+          <img src="image/Logo.png" alt="Logo">
+        </a>
+        <h1> คำนวณค่าไฟฟ้า </h1>
+        <a href="index.html" class="epic">
+          <img src="image/Epic_.png" alt="Logo1">
+        </a>
+    </nav>
+  <div class="container">
+    <div class="calculator" id="calculator1">
+      <div class="dropdown">
+        <button class="dropbtn" onclick="toggleDropdown('dropdown1')">
+          Select Appliance
+          <span class="dropdown-arrow"></span>
+        </button>
+        <div class="dropdown-content" id="dropdown1">
+          <a onclick="selectAppliance('TV', 'calculator1', 'dropdown1')">TV</a>
+          <a onclick="selectAppliance('Refrigerator', 'calculator1', 'dropdown1')">Refrigerator</a>
+          <a onclick="selectAppliance('Washing Machine', 'calculator1', 'dropdown1')">Washing Machine</a>
+          <a onclick="selectAppliance('Fan', 'calculator1', 'dropdown1')">Fan</a>
+        </div>
+      </div>
+      <div class="input-container">
+        <label for="items1">Number of Items:</label>
+        <input type="number" id="items1" placeholder="Enter number of items">
+      </div>
+      <div class="input-container">
+        <label for="hours1">Number of Hours:</label>
+        <input type="number" id="hours1" placeholder="Enter number of hours">
+      </div>
+      <div class="result-container">
+        <span id="result1"></span>
+      </div>
+    </div>
+  
+    <div class="calculator" id="calculator2">
+      <div class="dropdown">
+        <button class="dropbtn" onclick="toggleDropdown('dropdown2')">
+          Select Appliance
+          <span class="dropdown-arrow"></span>
+        </button>
+        <div class="dropdown-content" id="dropdown2">
+          <a onclick="selectAppliance('TV', 'calculator2', 'dropdown2')">TV</a>
+          <a onclick="selectAppliance('Refrigerator', 'calculator2', 'dropdown2')">Refrigerator</a>
+          <a onclick="selectAppliance('Washing Machine', 'calculator2', 'dropdown2')">Washing Machine</a>
+          <a onclick="selectAppliance('Fan', 'calculator2', 'dropdown2')">Fan</a>
+        </div>
+      </div>
+      <div class="input-container">
+        <label for="items2">Number of Items:</label>
+        <input type="number" id="items2" placeholder="Enter number of items">
+      </div>
+      <div class="input-container">
+        <label for="hours2">Number of Hours:</label>
+        <input type="number" id="hours2" placeholder="Enter number of hours">
+      </div>
+      <div class="result-container">
+        <span id="result2"></span>
+      </div>
+    </div>
+  
+    <div class="calculator" id="calculator3">
+      <div class="dropdown">
+        <button class="dropbtn" onclick="toggleDropdown('dropdown3')">
+          Select Appliance
+          <span class="dropdown-arrow"></span>
+        </button>
+        <div class="dropdown-content" id="dropdown3">
+          <a onclick="selectAppliance('TV', 'calculator3',  'dropdown3')">TV</a>
+          <a onclick="selectAppliance('Refrigerator', 'calculator3', 'dropdown3')">Refrigerator</a>
+          <a onclick="selectAppliance('Washing Machine', 'calculator3', 'dropdown3')">Washing Machine</a>
+          <a onclick="selectAppliance('Fan', 'calculator3', 'dropdown3')">Fan</a>
+        </div>
+      </div>
+      <div class="input-container">
+        <label for="items3">Number of Items:</label>
+        <input type="number" id="items3" placeholder="Enter number of items">
+      </div>
+      <div class="input-container">
+        <label for="hours3">Number of Hours:</label>
+        <input type="number" id="hours3" placeholder="Enter number of hours">
+      </div>
+      <div class="result-container">
+        <span id="result3"></span>
+      </div>
+    </div>
+  </div>
+  
+  <button id="calculate-button" class="calculate-button">Calculate Units</button>
+  
+  <a href="price.html" class="price-button">Calculate Price</a>
+      
+      
+    <script>
+        var selectedAppliance = {};
+
+        // Power consumption values for each appliance (in watts)
+        var powerConsumptions = {
+        TV: 200,
+        Refrigerator: 1000,
+        "Washing Machine": 1000,
+        Fan: 50
+        };
+
+        function toggleDropdown(dropdownId) {
+        var dropdown = document.getElementById(dropdownId);
+        dropdown.classList.toggle("show");
+        }
+
+        function selectAppliance(appliance, calculatorId, dropdownId) {
+        var dropdownButton = document.getElementById(dropdownId).previousElementSibling;
+        dropdownButton.textContent = appliance;
+        selectedAppliance[calculatorId] = appliance;
+        }
+
+        function calculateUnits() {
+        var totalUnits = 0;
+        
+        // Calculate the energy consumption for each calculator
+        for (var i = 1; i <= 3; i++) {
+            var items = parseInt(document.getElementById("items" + i).value);
+            var hours = parseInt(document.getElementById("hours" + i).value);
+            var calculatorId = "calculator" + i;
+            var appliance = selectedAppliance[calculatorId];
+            var power = powerConsumptions[appliance];
+            var dailyEnergy = (power * items * hours) / 1000;
+
+            var resultContainer = document.getElementById("result" + i);
+            resultContainer.textContent = "Daily Energy Consumption: " + dailyEnergy.toFixed(2) + " units";
+            
+            totalUnits += dailyEnergy;
+        }
+        
+        // Store the total units in localStorage
+        localStorage.setItem("totalUnits", totalUnits);
+        }
+
+        document.addEventListener("DOMContentLoaded", function() {
+        var calculateButton = document.getElementById("calculate-button");
+        calculateButton.addEventListener("click", calculateUnits);
+        });
+
+
+    </script>
+</html> 

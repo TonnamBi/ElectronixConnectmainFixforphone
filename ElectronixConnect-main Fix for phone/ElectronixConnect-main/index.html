@@ -1,0 +1,116 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Electric Calculator</title>
+    <link rel="stylesheet" type="text/css" href="style.css">
+</head>
+<body>
+    <nav class="navbar">
+        <a href="index.html" class="logo">
+          <img src="image/Logo.png" alt="Logo">
+        </a>
+        <h1> คำนวณค่าไฟฟ้า </h1>
+        <a href="index.html" class="epic">
+          <img src="image/Epic_.png" alt="Logo1">
+        </a>
+    </nav>
+    <div class="slideshow-container">
+      <div class="mySlides">
+        <img src="image/Chula.png" style="width:100%">
+      </div>
+  
+      <a class="arrow prev" onclick="plusSlides(-1)">&#10094;</a>
+      <a class="arrow next" onclick="plusSlides(1)">&#10095;</a>
+    </div>
+    <br>
+  
+    <div style="text-align:center">
+      <span class="dot" onclick="currentSlide(1)"></span>
+      <span class="dot" onclick="currentSlide(2)"></span>
+      <span class="dot" onclick="currentSlide(3)"></span>
+    </div>
+
+    <div class="page-container">
+      <div class="box">
+        <div class="image-container">
+          <img src="image/calculate.png" alt="Image 1">
+        </div>
+        <div class="content">
+          <h3> โปรแกรมคำนวณค่าไฟฟ้า</h3>
+          <p> คำนวณค่าไฟฟ้าของท่าน </p>
+          <a href="calculate.html" class="box-button">คลิกเลย</a>
+        </div>
+      </div>
+      <div class="box">
+        <div class="image-container">
+          <img src="image/Control_.png" alt="Image 1">
+        </div>
+        <div class="content">
+          <h3> โปรแกรมควบคุมค่าไฟฟ้า </h3>
+          <p> ควบคุมค่าไฟฟ้าของท่าน </p>
+          <a href="control.html" class="box-button">คลิกเลย</a>
+        </div>
+      </div>
+      <div class="box">
+        <div class="image-container">
+          <img src="image/appliant.png" alt="Image 1">
+        </div>
+        <div class="content">
+          <h3> เพิ่มเครื่องใช้ไฟฟ้า </h3>
+          <p> เพิ่มเครื่องใช้ไฟฟ้าของท่าน </p>
+          <a href="appliance.html" class="box-button">คลิกเลย</a>
+        </div>
+      </div>
+    </div>
+    </div>
+    <script>
+      let slideIndex = 1;
+      showSlides(slideIndex);
+  
+      function plusSlides(n) {
+        showSlides(slideIndex + n);
+      }
+  
+      function currentSlide(n) {
+        showSlides(n);
+      }
+  
+      function showSlides(n) {
+        const slides = document.getElementsByClassName("mySlides");
+        const dots = document.getElementsByClassName("dot");
+  
+        if (n > slides.length) {
+          slideIndex = 1;
+        }
+  
+        if (n < 1) {
+          slideIndex = slides.length;
+        }
+  
+        for (let i = 0; i < slides.length; i++) {
+          const slide = slides[i];
+          slide.style.display = "none";
+          slide.classList.remove("slide-in");
+          slide.classList.remove("slide-out");
+  
+          if (i === slideIndex - 1) {
+            slide.style.display = "block";
+            slide.classList.add("slide-in");
+          }
+  
+          if (i === slideIndex) {
+            slide.style.display = "block";
+            slide.classList.add("slide-out");
+          }
+        }
+  
+        for (let i = 0; i < dots.length; i++) {
+          const dot = dots[i];
+          dot.className = dot.className.replace(" active", "");
+          if (i === slideIndex - 1) {
+            dot.className += " active";
+          }
+        }
+      }
+    </script>
+</html> 
